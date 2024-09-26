@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arshify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <h1>BeatBox</h1>
+            <form class="searchForm" id="formSubmit" action="">
+                <input type="text" id="searchInput" placeholder="Search a beatiful song here..">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+           </form>
+            <ul class="nav-list">
+                <li>Albums</li>
+                <li>Artists</li>
+                <li>Playlists</li>
+                <li>Songs</li>
+                <li>Quick Picks</li>
+            </ul>
+        </nav>
+        <section class="secondSection">
+            <div class="songlistMain">
+                <div class="songList">
+                    <div class="cardTitle1">
+                        <h3>Recommended</h3>
+                    </div>
+                    <div class="scrollable-list">
+                     <ul class="recommended">
+                         
+                        </ul>
+                    </div>
+                 </div>
+                <div class="songList">
+                    <div class="cardTitle">
+                        <h3>Artists</h3>
+                    </div>
+                    <div class="scrollable-list">
+                     <ul class="recommended">
+                         <li>
+                            <div class="titleImg">
+                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
+                                <div class="songInfo">
+                                    <h4>Like You</h4>
+                                    <p>Justine Bieber</p>
+                                </div>
+                            </div>
+                             <button><i class="fa-solid fa-play"></i></button>
+                         </li>
+                         <li>
+                            <div class="titleImg">
+                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
+                                <div class="songInfo">
+                                    <h4>Like You</h4>
+                                    <p>Justine Bieber</p>
+                                </div>
+                            </div>
+                             <button><i class="fa-solid fa-play"></i></button>
+                         </li>
+                         <li>
+                            <div class="titleImg">
+                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
+                                <div class="songInfo">
+                                    <h4>Like You</h4>
+                                    <p>Justine Bieber</p>
+                                </div>
+                            </div>
+                             <button><i class="fa-solid fa-play"></i></button>
+                         </li>
+                         <li>
+                            <div class="titleImg">
+                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
+                                <div class="songInfo">
+                                    <h4>Like You</h4>
+                                    <p>Justine Bieber</p>
+                                </div>
+                            </div>
+                             <button><i class="fa-solid fa-play"></i></button>
+                         </li>
+                         <li>
+                            <div class="titleImg">
+                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
+                                <div class="songInfo">
+                                    <h4>Like You</h4>
+                                    <p>Justine Bieber</p>
+                                </div>
+                            </div>
+                             <button><i class="fa-solid fa-play"></i></button>
+                         </li>
+                         <li>
+                            <div class="titleImg">
+                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
+                                <div class="songInfo">
+                                    <h4 >Like You</h4>
+                                    <p>artist name</p>
+                                </div>
+                            </div>
+                             <button><i class="fa-solid fa-play"></i></button>
+                         </li>
+                        </ul>
+                    </div>
+                 </div>
+            </div>
+
+             <main>
+                <div class="thumbnail">
+                    <img id="bigImage" src="justinBieber.jpg" alt="">
+                    <div class="titleartist">
+                        <marquee id="songName" behavior="scroll" direction="left">Like You</marquee>
+                        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                            <p id="artistName">Justine Bieber</p>
+                            <p id="duration">Justine Bieber</p>
+                        </div>
+                    </div>
+                    <div class="audioContainer">
+                        <audio id="audio-control" src="https://prod-1.storage.jamendo.com/?trackid=241&format=mp31&from=UFlYBmSWFy6KronCBRrDbg%3D%3D%7ClHtfawO72sbSvY%2FgFGevYw%3D%3D" controls type="audio/mpeg"></audio>
+                    </div>
+                    <progress value="70" max="100" class="progressbar"></progress>
+                </div>
+                <div class="controller">
+                    <i id="like" class="fa-regular fa-heart"></i>
+                    <i id="previous" class="fa-solid fa-circle-chevron-left"></i>
+                    <i id="playPause" class="fa-solid fa-play"></i>
+                    <i id="next" class="fa-solid fa-circle-chevron-right"></i>
+                    <i id="loop" class="fa-solid fa-arrow-rotate-left"></i>
+                </div>
+             </main>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
