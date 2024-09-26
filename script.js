@@ -1,6 +1,17 @@
 const searchInput = document.querySelector("#searchInput");
 const formSubmit = document.querySelector("#formSubmit");
-// formSubmit.addEventListener
+let searchValue;
+formSubmit.addEventListener("click", function(event){
+   searchValue = searchInput.value;
+   const searchURL = `${baseURL}/tracks/?client_id=${clientId}&limit=10&search=${searchValue}`;
+   async ()=>{
+    const response = await fetch(searchURL);
+    const data = await response.json();
+    console.log(data);
+   }
+   console.log(searchValue);
+   event.preventDefault();
+})
 
 const clientId = "d3d25f82";
 const secretId = "fc10f0538123e6683ee1a0ab37c29305";
@@ -8,6 +19,8 @@ const baseURL = "https://api.jamendo.com/v3.0";
 
 
 const url = `${baseURL}/tracks/?client_id=${clientId}&limit=10`;
+
+
 
 let tracks = [];
 const bigImage = document.querySelector("#bigImage");
