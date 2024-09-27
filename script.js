@@ -65,7 +65,7 @@ function artistSection(name, aName, uName, jDate, cDate, aImg, mImg, alImg){
         // duration.textContent = aDuration;
     })
     const img = document.createElement("img");
-    img.src = img.src = aImg ? aImg : (mImg ? mImg : (alImg ? alImg : "images/playlist.png"));
+    img.src = img.src = aImg ? aImg : (mImg ? mImg : (alImg ? alImg : "https://arsadssss.github.io/arshify/images/playlist.png"));
     img.style.width = 40+"px";
     img.style.height = 40+"px";
 
