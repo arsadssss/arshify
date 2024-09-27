@@ -57,14 +57,14 @@ nav h1{
     color: black;
     cursor: pointer;
 }
-.recommended{
+.trackList{
     color: #202020;
     list-style: none;
 }
 .scrollable-list{
     width: 90%;
-    height: 300px;
-    margin-top: 20px;
+    height: 330px;
+    margin-top: 5px;
     overflow-y: auto;
     scrollbar-width: none;
 }
@@ -75,7 +75,7 @@ nav h1{
     height: 100%;
     width: 45%;
     min-width: 280px;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
     border-radius: 8px;
     background-color: rgba(239, 250, 255, 0.5);
     display: flex;
@@ -132,7 +132,7 @@ nav h1{
     font-weight: normal;
     font-style: 13px;
 }
-.recommended li{
+.trackList li{
     display: flex;
     width: 100%;
     height: auto;
@@ -141,7 +141,7 @@ nav h1{
     border-bottom: 2px solid #ffffff;
     padding: 10px 0px;
 }
-.recommended button{
+.trackList button{
     /* background-color: rgba(0, 33, 122, 0.568); */
     height: 35px;
     width: 35px;
@@ -163,6 +163,7 @@ nav h1{
     align-items: start;
     gap: 20px;
     flex-wrap: wrap;
+    position: relative;
 }
 main{
     height: 100%;
@@ -189,11 +190,11 @@ main{
     align-items: center;
     flex-direction: column;
 }
-progress{
+#progress-bar{
     width: 100%;
     height: auto;
 }
-.controller{
+.ctrl{
     width: 100%;
     height: auto;
     padding: 20px;
@@ -205,7 +206,7 @@ progress{
     align-items: center;
     gap: 15px;
 }
-.controller i{
+.ctrl i{
     height: 30px;
     width: 30px; 
     border-radius: 100px;
@@ -215,15 +216,14 @@ progress{
     cursor: pointer;
     font-size: 25px;
     color: white;
-    
 }
-.controller i:hover{
+.ctrl i:hover{
     color: red;
 }
-.controller i:last-child, i:first-child{
+.ctrl i:last-child, i:first-child{
     font-size: 16px;
 }
-.controller i:nth-child(3){
+.ctrl i:nth-child(3){
     font-size: 15px !important;
     height: 40px;
     width: 40px;
@@ -293,4 +293,53 @@ progress{
 .fa-pause{
     background-color: rgb(255, 255, 255) !important;
     color: red !important;
+}
+
+/* tooltip  */
+.forTooltip {
+    position: relative;
+}
+
+.tooltiptext {
+    display: block;
+    width: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    top: 5px;
+    right: -120px;
+    margin-left: -60px;
+    opacity: 0; 
+    transition: opacity 0.3s;
+    z-index: 55;
+}
+.userIcon{
+    height: 30px;
+    width: 30px;
+    background-color: #0d002b;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    
+}
+.fa-user{
+    font-size: 14px;
+}
+.userIcon:hover .tooltiptext {
+    display: block;
+    opacity: 1; 
+}
+.textScroll{
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.controller1{
+    display: none;
 }

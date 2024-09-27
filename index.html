@@ -10,18 +10,19 @@
 </head>
 <body>
     <div class="container">
-        <nav>
-            <h1>BeatBox</h1>
-            <form class="searchForm" id="formSubmit" action="">
+        <nav class="forTooltip">
+            <h1>Arshify</h1>
+            <form class="searchForm" action="">
                 <input type="text" id="searchInput" placeholder="Search a beatiful song here..">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type="submit" id="formSubmit"><i class="fa-solid fa-magnifying-glass"></i></button>
            </form>
             <ul class="nav-list">
-                <li>Albums</li>
-                <li>Artists</li>
-                <li>Playlists</li>
-                <li>Songs</li>
-                <li>Quick Picks</li>
+                <li class="navOption">Artists</li>
+                <li class="navOption">Albums</li>
+                <li class="navOption">Playlists</li>
+                <li class="navOption">Tracks</li>
+                <li class="userIcon"><i class="fa-regular fa-user"></i><span class="tooltiptext">User Creation is Unavailable</span></li>
+                
             </ul>
         </nav>
         <section class="secondSection">
@@ -31,77 +32,17 @@
                         <h3>Recommended</h3>
                     </div>
                     <div class="scrollable-list">
-                     <ul class="recommended">
+                     <ul class="recommended trackList">
                          
                         </ul>
                     </div>
                  </div>
                 <div class="songList">
                     <div class="cardTitle">
-                        <h3>Artists</h3>
+                        <h3 id="navName">Artists</h3>
                     </div>
                     <div class="scrollable-list">
-                     <ul class="recommended">
-                         <li>
-                            <div class="titleImg">
-                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
-                                <div class="songInfo">
-                                    <h4>Like You</h4>
-                                    <p>Justine Bieber</p>
-                                </div>
-                            </div>
-                             <button><i class="fa-solid fa-play"></i></button>
-                         </li>
-                         <li>
-                            <div class="titleImg">
-                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
-                                <div class="songInfo">
-                                    <h4>Like You</h4>
-                                    <p>Justine Bieber</p>
-                                </div>
-                            </div>
-                             <button><i class="fa-solid fa-play"></i></button>
-                         </li>
-                         <li>
-                            <div class="titleImg">
-                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
-                                <div class="songInfo">
-                                    <h4>Like You</h4>
-                                    <p>Justine Bieber</p>
-                                </div>
-                            </div>
-                             <button><i class="fa-solid fa-play"></i></button>
-                         </li>
-                         <li>
-                            <div class="titleImg">
-                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
-                                <div class="songInfo">
-                                    <h4>Like You</h4>
-                                    <p>Justine Bieber</p>
-                                </div>
-                            </div>
-                             <button><i class="fa-solid fa-play"></i></button>
-                         </li>
-                         <li>
-                            <div class="titleImg">
-                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
-                                <div class="songInfo">
-                                    <h4>Like You</h4>
-                                    <p>Justine Bieber</p>
-                                </div>
-                            </div>
-                             <button><i class="fa-solid fa-play"></i></button>
-                         </li>
-                         <li>
-                            <div class="titleImg">
-                                <img src="justinBieber.jpg" style="width: 40px; height: 40px;" alt="">
-                                <div class="songInfo">
-                                    <h4 >Like You</h4>
-                                    <p>artist name</p>
-                                </div>
-                            </div>
-                             <button><i class="fa-solid fa-play"></i></button>
-                         </li>
+                     <ul class="artistSection trackList">
                         </ul>
                     </div>
                  </div>
@@ -109,20 +50,20 @@
 
              <main>
                 <div class="thumbnail">
-                    <img id="bigImage" src="justinBieber.jpg" alt="">
+                    <img id="bigImage" src="images/AajKiRaat.jpg" alt="">
                     <div class="titleartist">
-                        <marquee id="songName" behavior="scroll" direction="left">Like You</marquee>
+                        <marquee id="songName" behavior="scroll" direction="left">Aaj Ki Raat - Stree-2</marquee>
                         <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-                            <p id="artistName">Justine Bieber</p>
-                            <p id="duration">Justine Bieber</p>
+                            <p id="artistName">Amitabh Bhattacharya</p>
+                            <p id="duration">3:49</p>
                         </div>
                     </div>
                     <div class="audioContainer">
-                        <audio id="audio-control" src="https://prod-1.storage.jamendo.com/?trackid=241&format=mp31&from=UFlYBmSWFy6KronCBRrDbg%3D%3D%7ClHtfawO72sbSvY%2FgFGevYw%3D%3D" controls type="audio/mpeg"></audio>
+                        <audio id="audio-control" src="images/AajKiRaat.mp3" controls type="audio/mpeg"></audio>
                     </div>
-                    <progress value="70" max="100" class="progressbar"></progress>
+                    <input type="range" id="progress-bar" value="0" step="0.1" min="0" max="100" />
                 </div>
-                <div class="controller">
+                <div class="controller ctrl">
                     <i id="like" class="fa-regular fa-heart"></i>
                     <i id="previous" class="fa-solid fa-circle-chevron-left"></i>
                     <i id="playPause" class="fa-solid fa-play"></i>
@@ -132,6 +73,15 @@
              </main>
         </section>
     </div>
+    <!-- <div class="controller1 ctrl">
+        <div class="ctrl1">
+        <i id="like" class="fa-regular fa-heart"></i>
+        <i id="previous" class="fa-solid fa-circle-chevron-left"></i>
+        <i id="playPause" class="fa-solid fa-play"></i>
+        <i id="next" class="fa-solid fa-circle-chevron-right"></i>
+        <i id="loop" class="fa-solid fa-arrow-rotate-left"></i>
+        </div>
+    </div> -->
 
     <script src="script.js"></script>
 </body>

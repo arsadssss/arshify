@@ -1,4 +1,7 @@
 @media only screen and (max-width: 779px){
+    body{
+        position: relative;
+    }
     .container{
         padding: 16px;
         height: 100%;
@@ -18,4 +21,22 @@
     main{
     width: 100%;
     }
+    /* .controller{
+        display: none;
+    }
+    .controller1{
+        display: block;
+        position: sticky;
+        top: 0;
+        left: 0;
+        border-radius: 0px;
+    }
+    .ctrl1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        gap: 15px;
+    } */
 }
