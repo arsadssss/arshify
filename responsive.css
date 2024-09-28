@@ -29,8 +29,7 @@
         top: 20px;
     }
     .forTooltip h1{
-        width: 100%;
-        text-align: center;
+        width: auto;
     }
     .searchForm{
         width: 100%;
