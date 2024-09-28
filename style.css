@@ -343,3 +343,21 @@ main{
 .controller1{
     display: none;
 }
+.sideButton{
+    display: none;
+}
+.active{
+    border-bottom: 1px solid #ec0047;
+}
+.logo{
+    width:auto;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+.logo img{
+    width: 25px;
+    height: auto;
+}

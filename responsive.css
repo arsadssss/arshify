@@ -18,25 +18,64 @@
     .songlistMain{
         width: auto;
     }
+    .dNone{
+        display: none;
+    }
     main{
     width: 100%;
     }
-    /* .controller{
-        display: none;
+    .tooltiptext{
+        right: 0;
+        top: 20px;
     }
-    .controller1{
+    .forTooltip h1{
+        width: 100%;
+        text-align: center;
+    }
+    .searchForm{
+        width: 100%;
+    }
+    .sideButton{
         display: block;
-        position: sticky;
-        top: 0;
-        left: 0;
-        border-radius: 0px;
+        height: auto;
+        width: auto;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        transform: rotate(270deg);
+        left: -70px;
     }
-    .ctrl1{
+    .sidebtn{
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: auto;
-        gap: 15px;
-    } */
+        gap: 20px;
+    }
+    #songs{
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+        background-color: rgb(255, 0, 140);
+        color: #ffffff;
+        border-radius: 0px 0px 5px 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    #featured{
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+        background-color: #4500e7;
+        color: #ffffff;
+        border-radius: 0px 0px 5px 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .logo{
+        justify-content: center;
+    }
 }
