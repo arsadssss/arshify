@@ -4,10 +4,7 @@ const baseURL = "https://api.jamendo.com/v3.0";
 
 const url = `${baseURL}/tracks/?client_id=${clientId}&limit=10`;
 
-
 const formSubmit = document.querySelector('#formSubmit');
-
-// NavBar Artist Section
 
 const navbar = document.querySelectorAll(".navOption");
 
@@ -41,9 +38,9 @@ const fetchingNavItems = async()=>{
             console.log(error);
         }
     }
-fetchingNavItems();
-const artisS = document.querySelector(".artistSection");
-function artistSection(name, aName, uName, jDate, cDate, aImg, mImg, alImg){
+    fetchingNavItems();
+    const artisS = document.querySelector(".artistSection");
+    function artistSection(name, aName, uName, jDate, cDate, aImg, mImg, alImg){
     const list = document.createElement("li");
 
     artisS.appendChild(list);
@@ -56,10 +53,12 @@ function artistSection(name, aName, uName, jDate, cDate, aImg, mImg, alImg){
 
     btn.addEventListener("click", async function(){
         searchValue = name !== undefined ? name : aName;
+        console.log(searchValue);
         await searchFunction();
         audioControl.play();
         playPause.classList.replace("fa-play", "fa-pause");
     });
+
     const img = document.createElement("img");
     img.src = img.src = aImg ? aImg : (mImg ? mImg : (alImg ? alImg : "https://arsadssss.github.io/arshify/images/playlist.png"));
     img.style.width = 40+"px";
@@ -82,7 +81,6 @@ function recommendedFirstSong(aImg, sName, aName, aAudio, aDuration){
         songName.textContent = sName;
         artistName.textContent = aName;
         duration.textContent = aDuration;
-        durationTimer()
         audioControl.src = aAudio;
 }
 
@@ -100,9 +98,9 @@ const searchFunction = async ()=>{
         
     }
    }
-var searchValue = document.querySelector("#searchInput").value;
-const cardTitleHeading = document.querySelector("#cardTitleHeading");
-formSubmit.addEventListener("click", function(event){
+    var searchValue = document.querySelector("#searchInput").value;
+    const cardTitleHeading = document.querySelector("#cardTitleHeading");
+    formSubmit.addEventListener("click", function(event){
     event.preventDefault();
     searchValue = document.querySelector("#searchInput").value;
     cardTitleHeading.innerHTML = "Result for " + searchValue;
@@ -142,7 +140,7 @@ function recommended(aImg, sName, aName, aAudio, aDuration){
     musiclist.classList.add("titleImg");
     list.append(musiclist, btn);
 
-    btn.addEventListener("click", function(){
+        btn.addEventListener("click", function(){
         audioControl.src = aAudio;
         audioControl.play();
         playPause.classList.replace("fa-play", "fa-pause");
@@ -282,15 +280,3 @@ function checkVisibility() {
         songlistMain.classList.add("dNone");
     }
 }
-
-// function durationTimer(){
-//     var audioDuration = Number(duration.textContent);
-//     const clearValid = setInterval(function(){
-//         audioDuration--;
-//         duration.innerHTML = audioDuration;
-//     }, 1000);
-    
-//     setTimeout(function(){
-//         clearInterval(clearValid);
-//     }, audioDuration == 0);
-// }
