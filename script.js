@@ -7,8 +7,10 @@ const url = `${baseURL}/tracks/?client_id=${clientId}&limit=10`;
 const formSubmit = document.querySelector('#formSubmit');
 
 const navbar = document.querySelectorAll(".navOption");
-
+const localOption = document.querySelector(".localOption");
+const localNav = document.querySelector(".localNav");
 const navHeading = document.querySelector("#navName");
+const localSongName = document.querySelector("#fileName");
 var navName = "artists";
 
 navbar.forEach(function(nav){
@@ -23,6 +25,16 @@ navbar.forEach(function(nav){
       songlistMain.classList.remove("dNone");
       sL2.classList.remove("dNone");
     });
+});
+
+localOption.addEventListener('click', function(){
+    navbar.forEach(function(nav){
+            if(nav.classList.contains('active')){
+                nav.classList.remove("active");
+            }
+        });
+        localOption.classList.add("active");
+        localNav.style.display = "block";
 });
 
 const fetchingNavItems = async()=>{
@@ -80,7 +92,7 @@ function recommendedFirstSong(aImg, sName, aName, aAudio, aDuration){
         bigImage.src = aImg;
         songName.textContent = sName;
         artistName.textContent = aName;
-        duration.textContent = aDuration;
+        audioDuration(aDuration);
         audioControl.src = aAudio;
 }
 
@@ -147,8 +159,7 @@ function recommended(aImg, sName, aName, aAudio, aDuration){
         bigImage.src = aImg;
         songName.textContent = sName;
         artistName.textContent = aName;
-        duration.textContent = aDuration;
-        durationTimer();
+        audioDuration(aDuration);
     })
     const img = document.createElement("img");
     img.src = aImg;
@@ -178,19 +189,21 @@ const next = document.querySelector("#next");
 const loop = document.querySelector("#loop");
 const songName = document.querySelector("#songName");
 const artistName = document.querySelector("#artistName");
-const duration = document.querySelector("#duration");
+const newDuration = document.querySelector("#duration");
 
 let musicControl = true;
 
-playPause.addEventListener("click", function(){
-    if(musicControl){
+playPause.addEventListener("click", function() {
+    if (musicControl) {
         audioControl.play();
         playPause.classList.replace("fa-play", "fa-pause");
         musicControl = false;
-    }else if(!musicControl){
+        audioDuration(audioControl.duration); 
+    } else {
         audioControl.pause();
         musicControl = true;
-        playPause.classList.replace("fa-pause","fa-play");
+        playPause.classList.replace("fa-pause", "fa-play");
+        clearInterval(durationInterval); 
     }
 });
 
@@ -209,7 +222,7 @@ function nextMusic(){
         bigImage.src = tracks[initAudio].album_image;
         songName.textContent = tracks[initAudio].name;
         artistName.textContent = tracks[initAudio].artist_name;
-        duration.textContent = tracks[initAudio].duration;
+        audioDuration(tracks[initAudio].duration);
         durationTimer();
         initAudio++;
     }else{
@@ -226,7 +239,7 @@ function prevMusic(){
         bigImage.src = tracks[initAudio].album_image;
         songName.textContent = tracks[initAudio].name;
         artistName.textContent = tracks[initAudio].artist_name;
-        duration.textContent = tracks[initAudio].duration;
+        audioDuration(tracks[initAudio].duration);
         durationTimer();
         initAudio--;
     }else{
@@ -272,11 +285,84 @@ featured.addEventListener("click", function(){
     checkVisibility();
 });
 
-
 function checkVisibility() {
     if (!sL1.classList.contains("dNone") || !sL2.classList.contains("dNone")) {
         songlistMain.classList.remove("dNone");
     } else {
         songlistMain.classList.add("dNone");
+    }
+}
+
+
+// Local music
+const audioInput = document.querySelector("#audioInput");
+const playLocal = document.querySelector("#playLocal");
+
+
+audioInput.addEventListener("change", function(event){
+    const file = event.target.files[0];
+    localSongName.innerHTML = file ? file.name + "<br /> <span style='color: green;'>Choose Another File</span>" : 'No file chosen';
+    
+    if (file) {
+        const audioURL = URL.createObjectURL(file);
+        const audio = new Audio(audioURL);
+
+        audio.addEventListener('loadedmetadata', function() {
+            const fileName = file.name;
+            const getAudioDuration = audio.duration.toFixed(2);
+            let thumbnailSRC;
+            let singerName;
+
+            jsmediatags.read(file, {
+                onSuccess: function(tag) {
+                    singerName = tag.tags.artist || 'Unknown Artist';
+                    if (tag.picture && tag.picture.length) {
+                        const picture = tag.picture[0];
+                        const base64String = Array.from(picture.data)
+                            .map(byte => String.fromCharCode(byte))
+                            .join('');
+                        thumbnailSRC = `data:${picture.format};base64,${btoa(base64String)}`;
+                    }
+                },
+                onError: function(error) {
+                    console.log('Error extracting metadata:', error);
+                }
+            });
+
+            playLocal.addEventListener("click", function() {
+                audioControl.src = audioURL;
+                audioControl.play();
+                playPause.classList.replace("fa-play", "fa-pause");
+                bigImage.src = thumbnailSRC || "images/favicon.jpg";
+                songName.textContent = fileName;
+                artistName.textContent = singerName;
+                audioDuration(getAudioDuration);
+                localOption.classList.remove("active");
+                localNav.style.display = "none";
+            });
+        });
+    }
+});
+
+let durationInterval;
+
+function audioDuration(dVal) {
+    if (durationInterval) {
+        clearInterval(durationInterval);
+    }
+
+    let durationCount = dVal ? Math.floor(Number(dVal)) : 0; 
+    newDuration.innerHTML = durationCount; 
+
+    
+    if (!musicControl) {
+        durationInterval = setInterval(function() {
+            durationCount--;
+            newDuration.innerHTML = durationCount >= 0 ? durationCount : 0; 
+            
+            if (durationCount <= 0) {
+                clearInterval(durationInterval);
+            }
+        }, 1000);
     }
 }

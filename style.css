@@ -42,6 +42,43 @@ nav h1{
     color: rgb(37, 0, 124);
     font-size: 25px;
 }
+.localNav{
+    display: none;
+}
+.localNavChild{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.localNav label{
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #0d002b;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-align: left;
+}
+input[type="file"]{
+    display: none;
+}
+.localNav button{
+    height: 35px;
+    width: 35px;
+    color: #ec0047;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
 .nav-list{
     font-size: 15px;
     font-weight: normal;

@@ -25,8 +25,16 @@
                 <li class="navOption">Albums</li>
                 <li class="navOption">Playlists</li>
                 <li class="navOption">Tracks</li>
+                <li class="localOption">Local</li>
                 <li class="userIcon"><i class="fa-regular fa-user"></i><span class="tooltiptext">User Creation is Unavailable</span></li>
              </ul>
+        </nav>
+        <nav class="forTooltip localNav">
+            <div class="localNavChild">
+                <input type="file" id="audioInput" accept="audio/*">
+            <label for="audioInput" id="fileName">Choose a file</label>
+            <button id="playLocal"><i class="fa-solid fa-play"></i></button>
+            </div>
         </nav>
         <section class="secondSection">
             <div class="songlistMain dNone">
@@ -56,7 +64,7 @@
                     <div class="titleartist">
                         <marquee id="songName" behavior="scroll" direction="left">Aaj Ki Raat - Stree-2</marquee>
                         <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-                            <p id="artistName">Amitabh Bhattacharya</p>
+                            <marquee id="artistName" behavior="scroll" direction="left">Amitabh Bhattacharya</marquee>
                             <p id="duration">349</p>
                         </div>
                     </div>
@@ -82,5 +90,6 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 </body>
 </html>
