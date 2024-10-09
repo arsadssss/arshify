@@ -19,11 +19,13 @@ navbar.forEach(function(nav){
       navHeading.innerHTML = nav.textContent;
       navbar.forEach(function(navItem){
         navItem.classList.remove("active");
+        localOption.classList.remove("active");
       });
       nav.classList.add("active");
       fetchingNavItems();
       songlistMain.classList.remove("dNone");
       sL2.classList.remove("dNone");
+      
     });
 });
 
